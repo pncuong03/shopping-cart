@@ -4,14 +4,14 @@ import { IProduct } from '~/types';
 
 export interface ProductState {
   products: IProduct[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  status:  'loading' | 'succeeded' | 'failed';
   error: string | null;
   searchTerm: string;
 }
 
 const initialState: ProductState = {
   products: [],
-  status: 'idle',
+  status: 'loading',
   error: null,
   searchTerm: '',
 };

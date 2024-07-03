@@ -6,7 +6,6 @@ const getSearchTerm = (state: any) => state.productReducer.searchTerm;
 export const getFilteredProducts = createSelector(
   [getProducts, getSearchTerm],
   (products, searchTerm) => {
-    console.log("SearchTerm:", searchTerm);
     if (!searchTerm) {
       return products;
     }

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Col, Input, Pagination, Row } from "antd";
 import ProductCard from "./ProductCard";
-import Search from "./Search";
 import { AppDispatch } from "~/app/store";
 import { fetchProducts, setSearchTerm } from "~/redux/productSlice";
 import { getFilteredProducts } from "~/redux/selector";
@@ -10,12 +9,12 @@ import { getFilteredProducts } from "~/redux/selector";
 const Products: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const products = useSelector(getFilteredProducts);
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
-
   const [item, setItem] = useState({ min: 0, max: 4 });
   const numEachPage = 4;
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   const handleChange = (value: number) => {
     setItem({
@@ -29,14 +28,17 @@ const Products: React.FC = () => {
   };
 
   return (
-    <div className="m-3 flex flex-col items-center justify-center gap-10">
-      <div className="flex flex-row justify-between gap-[300px] h-[50px]">
+    <div className="m-6">
+      <div className="mt-10 flex justify-center font-bold text-3xl mb-6">
+        Shop
+      </div>
+      <div className="flex gap-8 h-[50px] items-center mb-6">
+        <h2 className="font-semibold text-2xl px-3 md:px-0">Search product:</h2>
         <Input
           placeholder="Search products"
-          style={{ width: 200 }}
+          style={{ width: 200, height: 50 }}
           onChange={handleSearch}
         />
-        <Search />
       </div>
       <Row gutter={[10, 16]}>
         {products?.slice(item.min, item.max).map((product: any) => (
@@ -50,6 +52,7 @@ const Products: React.FC = () => {
         pageSize={numEachPage}
         onChange={handleChange}
         total={products?.length}
+        className="mt-6 flex justify-center"
       />
     </div>
   );

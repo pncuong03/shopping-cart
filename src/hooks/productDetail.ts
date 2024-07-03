@@ -6,11 +6,10 @@ const useProductDetail = () => {
 
     const getProductDetail = async (productId: any) => {
         const data = await api.get(`/products/${productId}`)
-      
             if(data){
                 setProductDetail(data?.data)
             }
-    }
+        }
 
     return { 
         getProductDetail,

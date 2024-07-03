@@ -1,4 +1,4 @@
-import { CartState, IProduct } from "~/redux/cartSlice";
+import { IProduct } from "~/types";
 
 export const getTotal = (cartItem: any) => {
     let totalQuantity = 0;

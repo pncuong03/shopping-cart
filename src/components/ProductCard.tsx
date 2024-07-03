@@ -20,8 +20,8 @@ const ProductCard = ({ product }: any) => {
   };
 
   return (
-    <div className="flex hover:shadow-lg  transition-all ease-in duration-150 basis-1/4 flex-1  flex-col border-2 border-slate-500 px-3 py-2 rounded-md">
-      <div className="flex flex-col items-center w-[400px] h-[500px]">
+    <div className="flex hover:shadow-lg w-full transition-all ease-in duration-150 basis-1/4 flex-1  flex-col border-2 border-slate-500 px-3 py-2 rounded-md">
+      <div className="flex flex-col items-center h-[500px]">
         <img
           className="w-[225px] h-[300px] object-contain"
           src={product.image}
@@ -40,11 +40,16 @@ const ProductCard = ({ product }: any) => {
       </div>
 
       <div className="flex justify-center gap-8">
-        <Button onClick={redirectToDetail}>Detail</Button>
+        <Button
+          onClick={redirectToDetail}
+          className="font-medium text-xl bg-yellow-300"
+        >
+          Detail
+        </Button>
         <Button
           onClick={() => onAddToCart(product)}
           title="Add to Cart"
-          className=" px-3 py-3 text-black bg-white rounded-md hover:bg-black hover:text-white transition-all ease-in duration-150"
+          className=" bg-yellow-300 w-20"
         >
           <ShoppingCartOutlined style={{ fontSize: 30 }} />
         </Button>
