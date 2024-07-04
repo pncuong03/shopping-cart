@@ -3,13 +3,16 @@ import Navbar from "./components/Navbar";
 import Products from "./components/Products";
 import { ToastContainer } from "react-toastify";
 import ProductDetail from "./components/ProductDetail";
+import Home from "./components/Home";
 
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Products />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Products />} />
+
         <Route path="/product/:productId" element={<ProductDetail />} />
       </Routes>
       <ToastContainer

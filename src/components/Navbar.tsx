@@ -42,6 +42,9 @@ function Navbar() {
             <li className="font-bold text-2xl px-3 md:px-0">
               <Link to="/">Home</Link>
             </li>
+            <li className="font-bold text-2xl px-3 md:px-0">
+              <Link to="/shop">Shop</Link>
+            </li>
             <li className="font-bold text-2xl px-3 md:px-0 flex flex-1 items-center justify-center">
               <Space>
                 <Badge count={cartCount} overflowCount={10}>
